@@ -15,7 +15,7 @@ root.configure(background = "#f16161")
 
 #row 0
 #photo
-logo = PhotoImage(file = "images\TK_logo.png")
+logo = PhotoImage(file = "Ascii changer\images\TK_logo.png")
 Label(root, image=logo, bg="#f16161").grid(row = 0, column = 0, pady=5, sticky = W)
 
 buttonframe = Frame(root).grid(row = 0, column = 1)
@@ -35,5 +35,5 @@ Button(root, text = "Settings", font = "none 12", bg="#df9999", width = 20, heig
 Button(root, text = "EXIT", font = "none 10", bg="#FF4C4C", width = 20, height = 5, command = close_root).grid(row = 10, column = 0, padx = 10, pady = 5, sticky = W)
 
 root.resizable(False, False)
-root.iconbitmap('images\TK_logo.ico')
+root.iconbitmap('Ascii changer\images\TK_logo.ico')
 root.mainloop()

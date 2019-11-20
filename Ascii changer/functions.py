@@ -37,12 +37,12 @@ def documentTKL(): #top level func to create a new window as Toplevel
     docTKL = Toplevel(bg = "#f16161")
     docTKL.title('Document TKL')
     docTKL.wm_geometry("794x370")
-    docTKL.iconbitmap('images\TK_logo.ico')
+    docTKL.iconbitmap('Ascii changer\images\TK_logo.ico')
     #insert labels and stuff
 
 def realtimeTKL(): #top level func to create a new window as Toplevel
     docTKL = Toplevel(bg = "#f16161")
     docTKL.title('Real-Time TKL')
     docTKL.wm_geometry("794x370")
-    docTKL.iconbitmap('images\TK_logo.ico')
+    docTKL.iconbitmap('Ascii changer\images\TK_logo.ico')
     #insert labels and stuff

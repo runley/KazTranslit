@@ -25,5 +25,5 @@ Label(docTKL, text = "\nTransKazLit", bg = "#f16161", fg = "white", font = "none
 #row 3
 
 
-root.iconbitmap('images\TK_logo.ico')
+root.iconbitmap('Ascii changer\images\TK_logo.ico')
 docTKL.mainloop()

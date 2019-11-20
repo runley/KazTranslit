@@ -43,7 +43,7 @@ realtimeTKL.configure(background = "#f16161")
 
 #row 0
 #photo
-logo = PhotoImage(file = "images\TK_logo.png")
+logo = PhotoImage(file = "Ascii changer\images\TK_logo.png")
 Label(realtimeTKL, image=logo, bg="#f16161").grid(row = 0, column = 0, pady=5, sticky = W)
 
 #row 1
@@ -69,5 +69,5 @@ Button(realtimeTKL, text = "EXIT", font = "none 10", bg="#FF4C4C", width = 20, h
 
 
 #realtimeloop()
-realtimeTKL.iconbitmap('images\TK_logo.ico')
+realtimeTKL.iconbitmap('Ascii changer\images\TK_logo.ico')
 realtimeTKL.mainloop()
