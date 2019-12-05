@@ -20,8 +20,8 @@ Label(root, image=logo, bg="#f16161").grid(row = 0, column = 0, pady=5, sticky =
 
 buttonframe = Frame(root).grid(row = 0, column = 1)
 Button(buttonframe, text = "FAQ", command = fn.documentTKL, font = "none 12", bg="#df9999", width = 5, height = 1).grid(row = 0, column = 1, pady = 5, sticky = NW)
-Button(buttonframe, text = "FAQ", command = fn.documentTKL, font = "none 12", bg="#df9999", width = 5, height = 1).grid(row = 0, column = 2, pady = 5, sticky = NW)
-Button(buttonframe, text = "FAQ", command = fn.documentTKL, font = "none 12", bg="#df9999", width = 5, height = 1).grid(row = 0, column = 3, pady = 5, sticky = NW)
+Button(buttonframe, text = "Manual", command = fn.documentTKL, font = "none 12", bg="#df9999", width = 5, height = 1).grid(row = 0, column = 2, pady = 5, sticky = NW)
+Button(buttonframe, text = "Something", command = fn.documentTKL, font = "none 12", bg="#df9999", width = 5, height = 1).grid(row = 0, column = 3, pady = 5, sticky = NW)
 
 #row 1
 Label(root, text = "\nTransKazLit", bg = "#f16161", fg = "white", font = "none 12 bold").grid(row = 1, column = 0, padx = 10, pady = 5, sticky = W)
