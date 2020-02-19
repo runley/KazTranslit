@@ -7,16 +7,16 @@ from subprocess import call
 class Main:  # Main class.
     def __init__(self):
         root = self.root = Tk()  # Init for main window.
-        root.title("KTL - Kaz TransLit")
+        root.title(" - Kaz TransLit")
         root.configure(background="#f16161")
 
         # Row 0
         # Photo
-        logo = PhotoImage(file="images/TK_logo.png")
+        logo = PhotoImage(file="images/KTL_logo.png")
         lbl = Label(root, image=logo, bg="#f16161").grid(row=0, column=0, pady=5, sticky=W)
 
         btnframe = Frame(root, bg="#f16161") #btn frame
-        btnframe.grid(row=0, column=1) # Toolbar on top of the window.
+        btnframe.grid(row=0, column=1,pady = 5, sticky=N) # Toolbar on top of the window.
         faq_btn = Button(btnframe, text="FAQ", command=fn.faqKTL, font="none 12",bg="#df9999", width=10, height=1)
         faq_btn.grid(row=0, column=0, pady=5, padx = 10, sticky=NW)
         man_btn = Button(btnframe, text="Manual", command=fn.manualKTL, font="none 12",bg="#df9999", width=10, height=1)
@@ -38,7 +38,7 @@ class Main:  # Main class.
         btn.grid(row=10, column=0, padx=10, pady=5, sticky=W)
 
         root.resizable(1, 1)
-        root.iconbitmap('images/TK_logo.ico')
+        root.iconbitmap('images/KTL_logo.ico')
         root.mainloop()
 
     def close_root(self):  # Kill func.
