@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import ttk
-
 #-------------------
 #functions
 #-------------------
@@ -29,8 +28,6 @@ def askUser(userInput): #takes in userinput to convert to file object, returns f
 def bufferCleaner(BufferLocation): #cleans buffer file
   tempBuffer = open(BufferLocation,"w")
   tempBuffer.close()
-
-
 
 #---------------
 #window functions
@@ -64,7 +61,7 @@ def manualKTL():
     manKTL = Toplevel(bg = "#f16161")
     manKTL.title(' - Manual')
     #row 0
-    logotxt = Label(manKTL, text="TransKazLit", bg="#f16161", fg="white",font="none 24 bold")
+    logotxt = Label(manKTL, text="KazTranslit", bg="#f16161", fg="white",font="none 24 bold")
     logotxt.grid(row=0, column=0, padx=10, pady=5, sticky=W)
     #row 1
     lbl = Label(manKTL, text="This is the user manual.", bg="#f16161", fg="white",font="none 14 bold")
@@ -85,7 +82,7 @@ def contactKTL():
     contactKTL = Toplevel(bg = "#f16161")
     contactKTL.title(' - Contact')
     #row 0
-    logotxt = Label(contactKTL, text="TransKazLit", bg="#f16161", fg="white",font="none 24 bold")
+    logotxt = Label(contactKTL, text="KazTranslit", bg="#f16161", fg="white",font="none 24 bold")
     logotxt.grid(row=0, column=0, padx=10, pady=5, sticky=W)
     #row 1
     lbl = Label(contactKTL, text="Contact me using the following methods:", bg="#f16161", fg="white",font="none 14 bold")
@@ -106,5 +103,8 @@ def contactKTL():
 def settingsKTL():
     settingsKTL = Toplevel(bg = "#f16161")
     settingsKTL.title(' - Settings')
+    #row 0
+    logotxt = Label(settingsKTL, text="KazTranslit", bg="#f16161", fg="white",font="none 24 bold")
+    logotxt.grid(row=0, column=0, padx=10, pady=5, sticky=W)
     #misc
     settingsKTL.iconbitmap('images/KTL_logo.ico')
