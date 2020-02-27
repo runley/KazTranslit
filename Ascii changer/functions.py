@@ -41,11 +41,11 @@ def documentKTL(): #top level func to create a new window as Toplevel
     docKTL.title('Document to Text - KTL')
 
     #row 0
-    logotxt = Label(docKTL, text="TransKazLit", bg="#f16161", fg="white",font="none 24 bold")
+    logotxt = Label(docKTL, text="TransKazLit", bg="#f16161", fg="white",font="Bahnschrift 24 bold")
     logotxt.grid(row=0, column=0, padx=10, pady=5, sticky=W)
 
     #row 1
-    lbl = Label(docKTL, text= "wololo", bg="#f16161", fg="white",font="none 14 bold")
+    lbl = Label(docKTL, text= "wololo", bg="#f16161", fg="white",font="Bahnschrift 14 bold")
     lbl.grid(row=1, column=0, pady=5, sticky=W)
 
     #row 2
@@ -63,15 +63,14 @@ def realtimeKTL():
     realKTL.title(' - Real-time')
 
     # Row 0
-    # Photo
-    logotxt = Label(realKTL, text="TransKazLit", bg="#f16161", fg="white",font="none 24 bold")
+    logotxt = Label(realKTL, text="TransKazLit", bg="#f16161", fg="white", font="Bahnschrift 24 bold")
     logotxt.grid(row=0, column=0, padx=10, pady=5, sticky=W)
 
     #row 1
-    lbl = Label(realKTL, text = "Enter text here:")
+    lbl = Label(realKTL,bg="#f16161", text = "Enter text here:", fg = "white", font="Bahnschrift 12")
     lbl.grid(row = 1, column= 0,)
-    lbl = Label(realKTL, text = "Watch magic happen here:")
-
+    lbl = Label(realKTL,bg="#f16161", text = "Watch magic happen here:", fg = "white", font="Bahnschrift 12")
+    lbl.grid(row = 1, column= 1,)
     #row 2
     txtbox = Text(realKTL, height = 20, width = 50)
     txtbox.grid(row=2, column=0, pady = 5, padx = 5)
@@ -93,7 +92,7 @@ def settingsKTL():
     settingsKTL.title(' - Settings')
 
     #row 0
-    logotxt = Label(settingsKTL, text="KazTranslit", bg="#f16161", fg="white",font="none 24 bold")
+    logotxt = Label(settingsKTL, text="KazTranslit", bg="#f16161", fg="white",font="Bahnschrift 24 bold")
     logotxt.grid(row=0, column=0, padx=10, pady=5, sticky=W)
 
     #close top
@@ -109,7 +108,7 @@ def manualKTL():
     manKTL.title(' - Manual')
 
     #row 0
-    logotxt = Label(manKTL, text="KazTranslit", bg="#f16161", fg="white",font="none 24 bold")
+    logotxt = Label(manKTL, text="KazTranslit", bg="#f16161", fg="white",font="Bahnschrift 24 bold")
     logotxt.grid(row=0, column=0, padx=10, pady=5, sticky=W)
 
     #row 1
@@ -129,7 +128,7 @@ def faqKTL():
     faqKTL.title(' - FAQ')
 
     #row 0
-    logotxt = Label(faqKTL, text="KazTranslit", bg="#f16161", fg="white",font="none 24 bold")
+    logotxt = Label(faqKTL, text="KazTranslit", bg="#f16161", fg="white",font="Bahnschrift 24 bold")
     logotxt.grid(row=0, column=0, padx=10, pady=5, sticky=W)
 
     #close top
@@ -145,19 +144,19 @@ def contactKTL():
     contactKTL.title(' - Contact')
 
     #row 0
-    logotxt = Label(contactKTL, text="KazTranslit", bg="#f16161", fg="white",font="none 24 bold")
+    logotxt = Label(contactKTL, text="KazTranslit", bg="#f16161", fg="white",font="Bahnschrift 24 bold")
     logotxt.grid(row=0, column=0, padx=10, pady=5, sticky=W)
 
     #row 1
-    lbl = Label(contactKTL, text="Contact me using the following methods:", bg="#f16161", fg="white",font="none 14 bold")
+    lbl = Label(contactKTL, text="Contact me using the following methods:", bg="#f16161", fg="white",font="Bahnschrift 14 bold")
     lbl.grid(row=1, column=0, padx=10, pady=5, sticky=W)
 
     #row 2
-    lbl = Label(contactKTL, text="Email: sultanbekov.02@outlook.com", bg="#f16161", fg="white",font="none 14")
+    lbl = Label(contactKTL, text="Email: sultanbekov.02@outlook.com", bg="#f16161", fg="white",font="Bahnschrift 14")
     lbl.grid(row=2, column=0, padx=10, pady=5, sticky=W)
 
     #row  3
-    lbl = Label(contactKTL, text="Instagram: @_runley", bg="#f16161", fg="white",font="none 14")
+    lbl = Label(contactKTL, text="Instagram: @_runley", bg="#f16161", fg="white",font="Bahnschrift 14")
     lbl.grid(row=3, column=0, padx=10, pady=5, sticky=W)
 
     #close top
