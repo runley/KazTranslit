@@ -17,25 +17,26 @@ class Main:  # Main class.
         #btn frame
         btnframe = Frame(root, bg="#f16161")
         btnframe.grid(row=0, column=1,pady = 5, sticky=N) # Toolbar on top of the window.
-        faq_btn = Button(btnframe, text="FAQ", command=fn.faqKTL, font="none 12",bg="#df9999", width=10, height=1)
+        faq_btn = Button(btnframe, text="FAQ", command=fn.faqKTL, font="none 12",bg="#EF4A4A", width=10, height=1)
         faq_btn.grid(row=0, column=0, pady=5, padx = 10, sticky=NW)
-        man_btn = Button(btnframe, text="Manual", command=fn.manualKTL, font="none 12",bg="#df9999", width=10, height=1)
+        man_btn = Button(btnframe, text="Manual", command=fn.manualKTL, font="none 12",bg="#EF4A4A", width=10, height=1)
         man_btn.grid(row=0, column=1, pady=5, padx = 10, sticky=NW)
-        cnt_btn = Button(btnframe, text="Contant Me", command=fn.contactKTL, font="none 12", bg="#df9999", width=10, height=1)
+        cnt_btn = Button(btnframe, text="Contant Me", command=fn.contactKTL, font="none 12", bg="#EF4A4A", width=10, height=1)
         cnt_btn.grid(row=0, column=2, pady=5, padx = 10, sticky=NW)
 
         # Row 1
-        logotxt = Label(root, text="KazTransLit", bg="#f16161", fg="white", font="none 12 bold")
-        logotxt.grid(row=1, column=0, padx=10, pady=5, sticky=W)
-        btn = Button(root, text="Document to Text", command=fn.documentKTL, font="none 12", bg="#df9999", width=20, height=5)
+        logotxt = Label(root, text="KazTransLit", bg="#f16161", fg="white", font="Bahnschrift 12 bold")
+        logotxt.grid(row=1, column=0, padx=10, pady=5, sticky=SW)
+        btn = Button(root, text="Document to Text", command=fn.documentKTL, font="none 12", bg="#EF4A4A", width=20, height=5)
         btn.grid(row=1, column=1, padx=10, pady=5, sticky=E)
-        btn = Button(root, text="Real Time Transliteration", command=fn.realtimeKTL, font="none 12", bg="#df9999", width=20, height=5)
+        btn = Button(root, text="Real Time Transliteration", command=fn.realtimeKTL, font="none 12", bg="#EF4A4A", width=20, height=5)
         btn.grid(row=1, column=2, padx=10, pady=5, sticky=E)
 
         # Row 2
-        btn = Button(root, text="Settings", command = fn.settingsKTL, font="none 12", bg="#df9999", width=20, height=5)
+        btn = Button(root, text="Settings", command = fn.settingsKTL, font="none 12", bg="#EF4A4A", width=20, height=5)
         btn.grid(row=2, column=2, padx=10, pady=5, sticky=E)
-        
+        lbl = Label(root, text="Transliteration on a whole 'nother level", bg="#f16161", fg="white", font="Bahnschrift 12")
+        lbl.grid(row=2, column=0, padx=10, pady=5, sticky=N)
         # Exit
         btn = Button(root, text="EXIT", font="none 10", bg="#FF4C4C", width=20, height=5, command=self.close_root)
         btn.grid(row=10, column=0, padx=10, pady=5, sticky=W)
@@ -49,3 +50,8 @@ class Main:  # Main class.
         exit()
 
 Main()
+
+#colors
+#EF4A4A 5% shade for f16161
+#f16161 main color light red
+#FF4C4C darker shade of f16161 for exit buttons
