@@ -13,7 +13,7 @@ class Main:  # Main class.
         # Row 0
         # Photo
         logo = PhotoImage(file="images/KTL_logo.png")
-        lbl = Label(root, image=logo, bg="#f16161").grid(row=0, column=0, pady=5, sticky=W)
+        lbl = Label(root, image=logo, bg="#f16161").grid(row=0, column=0, pady=5, padx =0, sticky=NW)
         #btn frame
         btnframe = Frame(root, bg="#f16161")
         btnframe.grid(row=0, column=1,pady = 5, sticky=N) # Toolbar on top of the window.
