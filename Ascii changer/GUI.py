@@ -25,8 +25,8 @@ class Main:  # Main class.
         cnt_btn.grid(row=0, column=2, pady=5, padx = 10, sticky=NW)
 
         # Row 1
-        logotxt = Label(root, text="KazTransLit", bg="#f16161", fg="white", font="Bahnschrift 12 bold")
-        logotxt.grid(row=1, column=0, padx=10, pady=5, sticky=SW)
+        lbl = Label(root, text="KazTransLit", bg="#f16161", fg="white", font="Bahnschrift 12 bold")
+        lbl.grid(row=1, column=0, padx=10, pady=5, sticky=SW)
         btn = Button(root, text="Document to Text", command=fn.documentKTL, font="none 12", bg="#EF4A4A", width=20, height=5)
         btn.grid(row=1, column=1, padx=10, pady=5, sticky=E)
         btn = Button(root, text="Real Time Transliteration", command=fn.realtimeKTL, font="none 12", bg="#EF4A4A", width=20, height=5)
