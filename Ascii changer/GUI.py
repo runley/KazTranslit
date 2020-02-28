@@ -35,12 +35,8 @@ class Main:  # Main class.
         # Row 2
         btn = Button(root, text="Settings", command = fn.settingsKTL, font="none 12", bg="#EF4A4A", width=20, height=5)
         btn.grid(row=2, column=2, padx=10, pady=5, sticky=E)
-<<<<<<< HEAD
-#wat?
-=======
         lbl = Label(root, text="Transliteration on a whole 'nother level", bg="#f16161", fg="white", font="Bahnschrift 12")
         lbl.grid(row=2, column=0, padx=10, pady=5, sticky=N)
->>>>>>> 9bd31e8f27f921f064d4b55f2424ae674d6f3448
         # Exit
         btn = Button(root, text="EXIT", font="none 10", bg="#FF4C4C", width=20, height=5, command=self.close_root)
         btn.grid(row=10, column=0, padx=10, pady=5, sticky=W)
