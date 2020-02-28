@@ -35,7 +35,7 @@ class Main:  # Main class.
         # Row 2
         btn = Button(root, text="Settings", command = fn.settingsKTL, font="none 12", bg="#df9999", width=20, height=5)
         btn.grid(row=2, column=2, padx=10, pady=5, sticky=E)
-        
+#wat?
         # Exit
         btn = Button(root, text="EXIT", font="none 10", bg="#FF4C4C", width=20, height=5, command=self.close_root)
         btn.grid(row=10, column=0, padx=10, pady=5, sticky=W)
