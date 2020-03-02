@@ -1,15 +1,24 @@
 from tkinter import *
 from tkinter import ttk
+
+#dictionary
+kazalphabet = {"А":"A","Ә":"Ä","Б":"B","В":"V","Г":"G","Ғ":"Ğ","Д":"D","Е":"E","Ё":"YO","Ж":"J","З":"Z","И":"Ï","Й":"Y","К":"K","Қ":"Q","Л":"L","М":"M","Н":"N","Ң":"Ñ","О":"O","Ө":"Ö","П":"P","Р":"R","С":"S","Т":"T","У":"W","Ұ":"U","Ү":"Ü","Ф":"F","Х":"X","Һ":"H","Ц":"C","Ч":"Ç","Ш":"Ş","Щ":"ŞÇ","Ъ":"\"","Ы":"I","І":"I","Ь":"\'","Э":"É","Ю":"YU","Я":"YA","а":"a","ә":"ä","б":"b","в":"v","г":"g","ғ":"ğ","д":"d","е":"e","ё":"yo","ж":"j","з":"z","и":"ï","й":"y","к":"k","л":"l","м":"m","н":"n","ң":"ñ","о":"o","ө":"ö","п":"p","р":"r","с":"s","т":"t","у":"w","ұ":"u","ү":"ü","ф":"f","х":"x","һ":"h","ц":"c","ч":"ç","ш":"ş","щ":"şç","ъ":"\"","ы":"ı","і":"i","ь":"\'","э":"é","ю":"yu","я":"ya"}
+
 #-------------------
 #functions
 #-------------------
-def StringChanger(stringinp,Buffer,alphabetDic): #magic code, works, dont touch
+def stringChanger(stringinp,Buffer,alphabetDic): #magic code, works, dont touch
   bufferFile = open(Buffer,"a+")
   teststring = stringinp
   for i in alphabetDic:
     x = alphabetDic.get(i)
     teststring = teststring.replace(i,x)
   bufferFile.write(teststring)
+
+
+def callLoop(stringinp,Buffer,alphabetDic): #calls itself every 10 seconds
+    proc_text = stringChanger(stringinp, Buffer, alphabetDic)
+    tk.after(10, lambda: callLoop(stringinp,Buffer,alphabetDic))
 
 
 def userInput(): #gets user input for further proccessing
@@ -56,6 +65,7 @@ def documentKTL(): #top level func to create a new window as Toplevel
 
     #misc
     docKTL.iconbitmap('images/KTL_logo.ico')
+    docKTL.resizable(0, 0)
 
 
 def realtimeKTL():
@@ -84,7 +94,12 @@ def realtimeKTL():
     btn.grid(row=10, column=0, padx=10, pady=5, sticky=W)
 
     #misc
+    #if txtbox.get(0.0, END) == !"null":
+    #    global textbox = textbox = txtbox.get(0.0, END)
+    #    callLoop(textbox, bufferedfile.txt, kazalphabet)
+
     realKTL.iconbitmap('images/KTL_logo.ico')
+    realKTL.resizable(0, 0)
 
 
 def settingsKTL():
@@ -101,6 +116,7 @@ def settingsKTL():
 
     #misc
     settingsKTL.iconbitmap('images/KTL_logo.ico')
+    settingsKTL.resizable(0, 0)
 
 
 def manualKTL():
@@ -121,6 +137,7 @@ def manualKTL():
 
     #misc
     manKTL.iconbitmap('images/KTL_logo.ico')
+    manKTL.resizable(0, 0)
 
 
 def faqKTL():
@@ -137,6 +154,7 @@ def faqKTL():
 
     #misc
     faqKTL.iconbitmap('images/KTL_logo.ico')
+    faqKTL.resizable(0, 0)
 
 
 def contactKTL():
@@ -165,3 +183,4 @@ def contactKTL():
 
     #misc
     contactKTL.iconbitmap('images/KTL_logo.ico')
+    contactKTL.resizable(0, 0)
