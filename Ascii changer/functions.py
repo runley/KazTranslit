@@ -7,18 +7,17 @@ kazalphabet = {"А":"A","Ә":"Ä","Б":"B","В":"V","Г":"G","Ғ":"Ğ","Д":"D",
 #-------------------
 #functions
 #-------------------
+global buff
 def stringChanger(stringinp,Buffer,alphabetDic): #magic code, works, dont touch
-  bufferFile = open(Buffer,"a+")
-  teststring = stringinp
+  bfile = open(Buffer,"a+")
+  procingstring = stringinp
   for i in alphabetDic:
     x = alphabetDic.get(i)
-    teststring = teststring.replace(i,x)
-  bufferFile.write(teststring)
+    procingstring = procingstring.replace(i,x)
+  bfile.write(procingstring)
+  return procingstring
 
 
-def callLoop(stringinp,Buffer,alphabetDic): #calls itself every 10 seconds
-    proc_text = stringChanger(stringinp, Buffer, alphabetDic)
-    tk.after(10, lambda: callLoop(stringinp,Buffer,alphabetDic))
 
 
 def userInput(): #gets user input for further proccessing
@@ -94,9 +93,15 @@ def realtimeKTL():
     btn.grid(row=10, column=0, padx=10, pady=5, sticky=W)
 
     #misc
-    #if txtbox.get(0.0, END) == !"null":
-    #    global textbox = textbox = txtbox.get(0.0, END)
-    #    callLoop(textbox, bufferedfile.txt, kazalphabet)
+    global textbox
+    def callLoop(stringinp,Buffer,alphabetDic): #calls itself every 10 seconds
+        proc_text = stringChanger(stringinp, Buffer, alphabetDic)
+        if proc_text == "":
+            outbox.insert(0,proc_text)
+        #realKTL.after(10, callLoop(textbox, "bufferedfile.txt", kazalphabet))
+    textbox = txtbox.get(1.0, END)
+
+    callLoop(textbox, "bufferedfile.txt", kazalphabet)
 
     realKTL.iconbitmap('images/KTL_logo.ico')
     realKTL.resizable(0, 0)
