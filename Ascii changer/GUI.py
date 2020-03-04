@@ -48,7 +48,6 @@ class Main:  # Main class.
     def close_root(self):  # Kill func.
         self.root.destroy()
         exit()
-
 Main()
 
 #colors
