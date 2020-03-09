@@ -99,10 +99,15 @@ def realtimeKTL():
     #close top
     btn = Button(realKTL, command = lambda: exit_btn(realKTL), text="close window", font="none 10", bg="#FF4C4C", width=10, height=3)
     btn.grid(row=10, column=0, padx=10, pady=5, sticky=W)
+
+    def testevent(event):
+        print("pressed", event.char)
+
+    txtbox.bind("<Key>", testevent)
     #misc
-    callLoop(realKTL, textbox, kazalphabet)
-    realKTL.after(10, lambda:  outbox.delete(1.0,END))
-    realKTL.after(10, lambda:  outbox.insert(1.0,callLoop))
+#    callLoop(realKTL, textbox, kazalphabet)
+#    realKTL.after(10, lambda:  outbox.delete(1.0,END))
+#    realKTL.after(10, lambda:  outbox.insert(1.0,callLoop))
 
 
     realKTL.iconbitmap('images/KTL_logo.ico')
