@@ -4,7 +4,7 @@ from tkinter import ttk
 
 global buff #buffer medium
 #dictionary
-kazalphabet = {"А":"A","Ә":"Ä","Б":"B","В":"V","Г":"G","Ғ":"Ğ","Д":"D","Е":"E","Ё":"YO","Ж":"J","З":"Z","И":"Ï","Й":"Y","К":"K","Қ":"Q","Л":"L","М":"M","Н":"N","Ң":"Ñ","О":"O","Ө":"Ö","П":"P","Р":"R","С":"S","Т":"T","У":"W","Ұ":"U","Ү":"Ü","Ф":"F","Х":"X","Һ":"H","Ц":"C","Ч":"Ç","Ш":"Ş","Щ":"ŞÇ","Ъ":"\"","Ы":"I","І":"I","Ь":"\'","Э":"É","Ю":"YU","Я":"YA","а":"a","ә":"ä","б":"b","в":"v","г":"g","ғ":"ğ","д":"d","е":"e","ё":"yo","ж":"j","з":"z","и":"ï","й":"y","к":"k","л":"l","м":"m","н":"n","ң":"ñ","о":"o","ө":"ö","п":"p","р":"r","с":"s","т":"t","у":"w","ұ":"u","ү":"ü","ф":"f","х":"x","һ":"h","ц":"c","ч":"ç","ш":"ş","щ":"şç","ъ":"\"","ы":"ı","і":"i","ь":"\'","э":"é","ю":"yu","я":"ya"}
+kazalphabet = {"А":"A","Ә":"Ä","Б":"B","В":"V","Г":"G","Ғ":"Ğ","Д":"D","Е":"E","Ё":"YO","Ж":"J","З":"Z","И":"Ï","Й":"Y","К":"K","Қ":"Q","Л":"L","М":"M","Н":"N","Ң":"Ñ","О":"O","Ө":"Ö","П":"P","Р":"R","С":"S","Т":"T","У":"W","Ұ":"U","Ү":"Ü","Ф":"F","Х":"X","Һ":"H","Ц":"C","Ч":"Ç","Ш":"Ş","Щ":"ŞÇ","Ъ":"\"","Ы":"I","І":"I","Ь":"\'","Э":"É","Ю":"YU","Я":"YA","а":"a","ә":"ä","б":"b","в":"v","г":"g","ғ":"ğ","д":"d","е":"e","ё":"yo","ж":"j","з":"z","и":"ï","й":"y","к":"k","қ":"q","л":"l","м":"m","н":"n","ң":"ñ","о":"o","ө":"ö","п":"p","р":"r","с":"s","т":"t","у":"w","ұ":"u","ү":"ü","ф":"f","х":"x","һ":"h","ц":"c","ч":"ç","ш":"ş","щ":"şç","ъ":"\"","ы":"ı","і":"i","ь":"\'","э":"é","ю":"yu","я":"ya"}
 
 #-------------------
 #functions
@@ -74,7 +74,7 @@ def documentKTL(): #top level func to create a new window as Toplevel
 
 
 def realtimeKTL(): #top level for realtime window + code to make the window work
-    global txtboxstring
+    global txtboxbuffer
     realKTL = Toplevel(bg = "#f16161")
     realKTL.title(' - Real-time')
     # Row 0
@@ -90,18 +90,23 @@ def realtimeKTL(): #top level for realtime window + code to make the window work
     txtbox.grid(row=2, column=0, pady = 5, padx = 5)
     outbox = Text(realKTL, height = 20, width = 50)
     outbox.grid(row=2, column=1, pady = 5, padx = 5)
-    textbox = txtbox.get(0.0, END)
     #close top
     btn = Button(realKTL, command = lambda: exit_btn(realKTL), text="close window", font="none 10", bg="#FF4C4C", width=10, height=3)
     btn.grid(row=10, column=0, padx=10, pady=5, sticky=W)
     #update
+
+    #def updateUpdateout(event):
+    #    eventt = event
+    #    updateout(eventt)
+
     def updateout(event): # func to update outbox contents and processs txtbox
         print("pressed", event.char)
-        txtboxstring = realtimeChanger(txtbox.get("1.0", "end"), kazalphabet)
+        txtboxbuffer = realtimeChanger(txtbox.get("1.0", "end"), kazalphabet)
         outbox.delete("1.0", "end")  # if you want to remove the old data
-        outbox.insert(END,txtboxstring)
-        print("txtboxstring contents are:", txtboxstring)
+        outbox.insert(END,txtboxbuffer)
+        print("txtboxbuffer contents are:", txtboxbuffer)
 
+#try this bellow one day realKTL.after(updateUpdateout())
     txtbox.bind("<Key>", updateout)# bind all keys to updateout() func
     #misc
     realKTL.iconbitmap('images/KTL_logo.ico')
