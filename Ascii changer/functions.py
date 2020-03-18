@@ -107,7 +107,7 @@ def realtimeKTL(): #top level for realtime window + code to make the window work
         print("txtboxbuffer contents are:", txtboxbuffer)
 
 #try this bellow one day realKTL.after(updateUpdateout())
-    txtbox.bind("<Key>", updateout)# bind all keys to updateout() func
+    txtbox.bind("<KeyRelease>", updateout)# bind all keys to updateout() func
     #misc
     realKTL.iconbitmap('images/KTL_logo.ico')
     realKTL.resizable(0, 0)
