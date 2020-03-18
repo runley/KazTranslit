@@ -1,5 +1,23 @@
-from tkinter import *
-from tkinter import ttk
+# Import packages we know are here and won't mess anything up
+import sys
+try:
+    from tkinter import *
+    from tkinter import ttk
+except ImportError:
+    try:
+        from Tkinter import *
+        from Tkinter import ttk
+    except ImportError:
+        # If no versions of tkinter exist (most likely linux) provide a message
+        if sys.version_info.major < 3:
+            print("Error: Tkinter not found")
+            print('For linux, you can install Tkinter by executing: "sudo apt-get install python-tk"')
+            sys.exit(1)
+        else:
+            print("Error: tkinter not found")
+            print('For linux, you can install tkinter by executing: "sudo apt-get install python3-tk"')
+            sys.exit(1)
+
 import functions as fn
 from subprocess import call
 # Functions but most of other funcs are in a methods.py in the same folder.
