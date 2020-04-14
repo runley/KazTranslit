@@ -8,13 +8,15 @@ except ImportError:
 #use the ask dir and other shit above
 #vars
 global buff #buffer medium
+global FileDir
+global saveDir
 kazalphabet = {"А":"A","Ә":"Ä","Б":"B","В":"V","Г":"G","Ғ":"Ğ","Д":"D","Е":"E","Ё":"YO","Ж":"J","З":"Z","И":"Ï","Й":"Y","К":"K","Қ":"Q","Л":"L","М":"M","Н":"N","Ң":"Ñ","О":"O","Ө":"Ö","П":"P","Р":"R","С":"S","Т":"T","У":"W","Ұ":"U","Ү":"Ü","Ф":"F","Х":"X","Һ":"H","Ц":"C","Ч":"Ç","Ш":"Ş","Щ":"ŞÇ","Ъ":"\"","Ы":"I","І":"I","Ь":"\'","Э":"É","Ю":"YU","Я":"YA","а":"a","ә":"ä","б":"b","в":"v","г":"g","ғ":"ğ","д":"d","е":"e","ё":"yo","ж":"j","з":"z","и":"ï","й":"y","к":"k","қ":"q","л":"l","м":"m","н":"n","ң":"ñ","о":"o","ө":"ö","п":"p","р":"r","с":"s","т":"t","у":"w","ұ":"u","ү":"ü","ф":"f","х":"x","һ":"h","ц":"c","ч":"ç","ш":"ş","щ":"şç","ъ":"\"","ы":"ı","і":"i","ь":"\'","э":"é","ю":"yu","я":"ya"} #dictionary
 
 #-------------------
 #functions
 #-------------------
-def docChanger(stringinp,Buffer,alphabetDic): #magic code, works, dont touch
-  bfile = open(Buffer,"a+")
+def docChanger(stringinp,alphabetDic): #magic code, works, dont touch
+  bfile = open("Buffer.txt","a+")
   procingstring = stringinp
   for i in alphabetDic:
     x = alphabetDic.get(i)
@@ -30,10 +32,20 @@ def realtimeChanger(stringinp,alphabetDic): #magic code, works, dont touch
     return procingstring
 
 
-def userInput(): #gets user input for further proccessing
-    inputvar = input("enter filename:\n>")
-    return inputvar
+def askFile(): #gets user input for further proccessing
+    FileDir = askopenfilename()
+    with open(FileDir, "r", encoding='utf-8') as askedFile:
+        procingstring = askedFile.read()
+    docChanger(procingstring, kazalphabet)
+    print(FileDir)
 
+def askSave():
+    try:
+        saveDir = asksaveasfilename()
+        return saveDir
+        print(saveDir)
+    except Exception as e:
+        raise
 
 def askUser(userInput): #takes in userinput to convert to file object, returns file
     try:
@@ -63,10 +75,18 @@ def documentKTL(): #top level func to create a new window as Toplevel
     logotxt.grid(row=0, column=0, padx=10, pady=5, sticky=W)
 
     #row 1
-    lbl = Label(docKTL, text= "wololo", bg="#f16161", fg="white",font="Bahnschrift 14 bold")
-    lbl.grid(row=1, column=0, pady=5, sticky=W)
+    btn = Button(docKTL, text="Choose a file", command=askFile, font="none 14", bg="#EF4A4A", fg="white", width=12, height=1)
+    btn.grid(row=1, column=0, padx=5, pady=5, sticky=SW)
+    consoleUI = Text(docKTL, height = 20, width = 50) #consoleUI element
+    consoleUI.grid(row=1, column=1, pady = 5, padx = 5, columnspan=2, rowspan=5)
 
     #row 2
+    btn = Button(docKTL, text="Choose a save location", command=askSave, font="none 14", bg="#EF4A4A", fg="white", width=20, height=1)
+    btn.grid(row=2, column=0, padx=5, pady=5, sticky=NW)
+
+    #row 3
+    btn = Button(docKTL, text="Go", font="none 14", bg="#EF4A4A", fg="white", width=4, height=1)#add command= later at some point
+    btn.grid(row=3, column=0, padx=5, pady=5, sticky=NW)
 
     #close window
     btn = Button(docKTL, command = lambda: exit_btn(docKTL), text="close window", font="none 10", bg="#FF4C4C", width=10, height=3)
@@ -81,28 +101,28 @@ def realtimeKTL(): #top level for realtime window + code to make the window work
     global txtboxbuffer
     realKTL = Toplevel(bg = "#f16161")
     realKTL.title(' - Real-time')
+
     # Row 0
     logotxt = Label(realKTL, text="TransKazLit", bg="#f16161", fg="white", font="Bahnschrift 24 bold")
     logotxt.grid(row=0, column=0, padx=10, pady=5, sticky=W)
+
     #row 1
-    lbl = Label(realKTL,bg="#f16161", text = "Enter text here:", fg = "white", font="Bahnschrift 12")
+    lbl = Label(realKTL,bg="#f16161", text = "Enter text here:", fg = "white", font="Bahnschrift 15")
     lbl.grid(row = 1, column= 0,)
-    lbl = Label(realKTL,bg="#f16161", text = "Watch magic happen here:", fg = "white", font="Bahnschrift 12")
+    lbl = Label(realKTL,bg="#f16161", text = "Watch magic happen here:", fg = "white", font="Bahnschrift 15")
     lbl.grid(row = 1, column= 1,)
+
     #row 2
     txtbox = Text(realKTL, height = 20, width = 50)
     txtbox.grid(row=2, column=0, pady = 5, padx = 5)
     outbox = Text(realKTL, height = 20, width = 50)
     outbox.grid(row=2, column=1, pady = 5, padx = 5)
+
     #close top
     btn = Button(realKTL, command = lambda: exit_btn(realKTL), text="close window", font="none 10", bg="#FF4C4C", width=10, height=3)
     btn.grid(row=10, column=0, padx=10, pady=5, sticky=W)
+
     #update
-
-    #def updateUpdateout(event):
-    #    eventt = event
-    #    updateout(eventt)
-
     def updateout(event): # func to update outbox contents and processs txtbox
         print("pressed", event.char)
         txtboxbuffer = realtimeChanger(txtbox.get("1.0", "end"), kazalphabet)
@@ -110,8 +130,8 @@ def realtimeKTL(): #top level for realtime window + code to make the window work
         outbox.insert(END,txtboxbuffer)
         print("txtboxbuffer contents are:", txtboxbuffer)
 
-#try this bellow one day realKTL.after(updateUpdateout())
     txtbox.bind("<KeyRelease>", updateout)# bind all keys to updateout() func
+
     #misc
     realKTL.iconbitmap('images/KTL_logo.ico')
     realKTL.resizable(0, 0)
@@ -145,7 +165,12 @@ def manualKTL():
     #row 1
     lbl = Label(manKTL, text="This is the user manual.", bg="#f16161", fg="white",font="none 14 bold")
     lbl.grid(row=1, column=0, padx=10, pady=5, sticky=W)
-
+    #row 2
+    lbl = Label(manKTL, text="real time KTL", bg="#f16161", fg="white",font="none 13 bold")
+    lbl.grid(row=2, column=0, padx=10, pady=5, sticky=W)
+    #row 3
+    lbl = Label(manKTL, text="Input any letter in the Cyrillic alphabet to get a transliterated version of your text.\n for more information please check the FAQs.", bg="#f16161", fg="white",font="none 12")
+    lbl.grid(row=3, column=0, padx=10, pady=5, sticky=W)
     #close top
     btn = Button(manKTL, command = lambda: exit_btn(manKTL), text="close window", font="none 10", bg="#FF4C4C", width=10, height=3)
     btn.grid(row=10, column=0, padx=10, pady=5, sticky=W)
