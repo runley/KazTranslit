@@ -16,7 +16,7 @@ global kazalphabet
 kazalphabet = {"А":"A","Ә":"Ä","Б":"B","В":"V","Г":"G","Ғ":"Ğ","Д":"D","Е":"E","Ё":"YO","Ж":"J","З":"Z","И":"Ï","Й":"Y","К":"K","Қ":"Q","Л":"L","М":"M","Н":"N","Ң":"Ñ","О":"O","Ө":"Ö","П":"P","Р":"R","С":"S","Т":"T","У":"W","Ұ":"U","Ү":"Ü","Ф":"F","Х":"X","Һ":"H","Ц":"C","Ч":"Ç","Ш":"Ş","Щ":"ŞÇ","Ъ":"\"","Ы":"I","І":"I","Ь":"\'","Э":"É","Ю":"YU","Я":"YA","а":"a","ә":"ä","б":"b","в":"v","г":"g","ғ":"ğ","д":"d","е":"e","ё":"yo","ж":"j","з":"z","и":"ï","й":"y","к":"k","қ":"q","л":"l","м":"m","н":"n","ң":"ñ","о":"o","ө":"ö","п":"p","р":"r","с":"s","т":"t","у":"w","ұ":"u","ү":"ü","ф":"f","х":"x","һ":"h","ц":"c","ч":"ç","ш":"ş","щ":"şç","ъ":"\"","ы":"ı","і":"i","ь":"\'","э":"é","ю":"yu","я":"ya"} #dictionary
 
 #functions
-def docChanger(stringinp,alphabetDic): #magic code, works, dont touch
+def docChanger(stringinp,alphabetDic): #Document transliteration for loop
   bfile = open("Buffer.txt","w")
   procingstring = stringinp
   for letter in alphabetDic:
@@ -24,7 +24,7 @@ def docChanger(stringinp,alphabetDic): #magic code, works, dont touch
     procingstring = procingstring.replace(letter,letter_definition)
   bfile.write(procingstring)
 
-def realtimeChanger(stringinp,alphabetDic): #magic code, works, dont touch
+def realtimeChanger(stringinp,alphabetDic): #real time transliteration for loop
     procingstring = stringinp
     for letter in alphabetDic:
       letter_definition = alphabetDic.get(letter)
@@ -60,19 +60,3 @@ def bufferCleaner(BufferLocation): #cleans buffer file
 def exit_btn(name): # closes top levels by taking the name of the top level
     name.destroy()
     name.update()
-
-def settingsKTL(): #settings toplevel to show the settings
-    settingsKTL = Toplevel(bg = "#f16161")
-    settingsKTL.title(' - Settings')
-
-    #row 0
-    logotxt = Label(settingsKTL, text="KazTranslit", bg="#f16161", fg="white",font="Bahnschrift 24 bold")
-    logotxt.grid(row=0, column=0, padx=10, pady=5, sticky=W)
-
-    #close top
-    btn = Button(settingsKTL, command = lambda: exit_btn(settingsKTL), text="close window", font="none 10", bg="#FF4C4C", width=10, height=3)
-    btn.grid(row=10, column=0, padx=10, pady=5, sticky=W)
-
-    #misc
-    settingsKTL.iconbitmap('images/KTL_logo.ico')
-    settingsKTL.resizable(0, 0)

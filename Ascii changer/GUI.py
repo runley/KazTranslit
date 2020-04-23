@@ -23,7 +23,6 @@ import MenuTabUI as tabUI
 import realtimeKTL
 import documentKTL
 import settingsKTL
-from subprocess import call
 # Functions but most of other funcs are in a methods.py in the same folder.
 
 class Main:  # Main class.
