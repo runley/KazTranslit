@@ -1,3 +1,5 @@
+#DISCLAIMER, HALF THE SHIT DOESNT WORK BECAUSE THIS WAS MY COMPUTING ASINGMENT BEFORE COVID
+
 # KazTranslit
 transliteration software used to convert Cyrillic to Latin letters.
 
