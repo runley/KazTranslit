@@ -13,3 +13,7 @@ you input a document and press 'go' to get the equivalent document but in the ne
 
 ### Real time trasnliteration
 you can type and you will get text generated in real time (or apear to be in real time) after you type up all you need you can copy paste it where ever you need.
+
+
+### View full documentation Bellow
+https://docdro.id/fY3YfWC
